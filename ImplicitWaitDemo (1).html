@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing Shastra | Implicit Wait Demo</title>
+</head>
+<body>
+	<h2>Implicit and Explicit Wait Demo</h2>
+	<ul>
+		<li>
+			<h4>Assignment_1: Implicit Wait Demo: </h4>
+			Enter name in a text box and try to click on 'Click Me' button immediately
+			<p>You will not get any error. But button is not clickable immidiately. Here impicit wait only waits for presence of element. So 'Click Me' button is present in DOM hence you will not get any error. But if you click on it, nothing happens as the button is not clickable</p>
+			<h4>Assignment_2: Explicit Wait Demo: </h4>
+			Enter name and click on 'Click Me' button and wait for the message to be diplayed on page.
+			<h4>Assignment_3: Explicit Wait Demo:
+			Click on 'Button2' and print the message
+		</li>
+	</ul>
+	<input type="text" id = "name" name="name" placeholder="Enter your name"></input><br>
+	<button id="btn-1" onclick="clickMe()" disabled>Click Me</button>
+	<p id = "demo"></p>
+	<p id = "demo2"></p>
+	<script type="text/javascript">
+		setTimeout(function() {
+        document.getElementById("btn-1").disabled = false;
+        const btn2 = document.createElement("button")
+        btn2.innerHTML="Button2"
+        document.body.appendChild(btn2)
+        btn2.onclick = function(){
+        	document.getElementById('demo2').innerHTML="You have clicked Button2";
+        }
+    }, 10000);
+
+	function clickMe(){
+		var name= document.getElementById("name").value;
+		document.getElementById('demo').innerHTML="Hello "+name+"! You have successfully completed assignment";
+	}
+	</script>
+</body>
+</html>
